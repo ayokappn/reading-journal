@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Journal de Lecture</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+  <div class="background">
+    <!-- Petit menu vertical en haut à droite -->
+    <div class="top-links">
+      <a href="#">Page 1</a>
+      <a href="#">Page 2</a>
+      <a href="#">Page 3</a>
+    </div>
+
+    <!-- Conteneur principal -->
+    <div class="main-box">
+      <!-- Liste des entrées -->
+      <aside class="entry-list scroll-box">
+        <h2>Entrées</h2>
+        <ul>
+          <li><button onclick="loadEntry('entry1.html')">5 mai 2025</button></li>
+          <li><button onclick="loadEntry('entry2.html')">1 mai 2025</button></li>
+        </ul>
+      </aside>
+
+      <!-- Contenu d'entrée -->
+      <main id="entryContent" class="entry-content scroll-box">
+        <p>Choisis une entrée pour l'afficher ici.</p>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function loadEntry(filename) {
+      fetch('entries/' + filename)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('entryContent').innerHTML = data;
+        })
+        .catch(error => {
+          document.getElementById('entryContent').innerHTML = "<p>Erreur de chargement.</p>";
+        });
+    }
+  </script>
+</body>
+</html>
