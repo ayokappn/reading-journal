@@ -1,0 +1,9 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Book Antiqua", serif;
+    background-color: #fff0f5;
+    overflow: hidden;
+    cursor: url('cursor.png'), auto;
+  }
